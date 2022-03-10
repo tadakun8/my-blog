@@ -102,10 +102,7 @@ function MyApp({ Component, pageProps }) {
 
 ### styles ディレクトリのファイル
 
-ディレクトリ以下の 2 ファイルを削除
-
-- globals.css
-- Home.module.css
+ディレクトリごと削除
 
 ## eslint の導入
 
