@@ -228,3 +228,19 @@ function MyApp({ Component, pageProps }) {
 -export default Home
 +export default Home;
 ```
+
+## src ディレクトリ作成
+
+Nextjs では`pages/`を`src/`に格納しても問題ありません
+
+- https://nextjs.org/docs/advanced-features/src-directory
+
+実装を進めていくと、`components/`や、`constants/`などのディレクトリをを適宜作成していくことになります。これらのディレクトリはそのままだと`pages/`と並列に作られますが、数が多くなってくると、プロジェクトルートにディレクトリが乱立します。乱立しても問題はないのですが、ぐちゃぐちゃしてるのは気分のいいものではないでしょう(少なくとも僕は)
+
+そのモヤモヤをなくすために、`pages/`を含むアプリコードを`src/`配置します。
+
+※ 改めて言いますが、`src`を作成しなくても問題はありません。
+
+```
+❯❯❯ mkdir src && mv pages src
+```
