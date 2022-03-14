@@ -1,3 +1,4 @@
+import Markdown from "markdown-to-jsx";
 import { NextPage, InferGetStaticPropsType } from "next";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
@@ -22,13 +23,10 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }: any) => {
   const post = getPostBySlug(params.slug, ["slug", "title", "date", "tags", "content"]);
 
-  const content = await markdownToHtml(post.content);
+  // const content = await markdownToHtml(post.content);
   return {
     props: {
-      post: {
-        ...post,
-        content,
-      },
+      post,
     },
   };
 };
@@ -44,7 +42,8 @@ const Post: NextPage<Props> = ({ post }) => (
     </ul>
     <section>
       {/* ここでdangerouslySetInnerHTMLを使ってHTMLタグを出力する */}
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      {/* <div dangerouslySetInnerHTML={{ __html: post.content }} /> */}
+      <Markdown>{post.content}</Markdown>
     </section>
   </article>
 );
