@@ -1,5 +1,6 @@
 import Markdown from "markdown-to-jsx";
 import { NextPage, InferGetStaticPropsType } from "next";
+import MarkdownRender from "../../components/markdownRender";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 
@@ -43,7 +44,7 @@ const Post: NextPage<Props> = ({ post }) => (
     <section>
       {/* ここでdangerouslySetInnerHTMLを使ってHTMLタグを出力する */}
       {/* <div dangerouslySetInnerHTML={{ __html: post.content }} /> */}
-      <Markdown>{post.content}</Markdown>
+      <MarkdownRender content={post.content} />
     </section>
   </article>
 );
