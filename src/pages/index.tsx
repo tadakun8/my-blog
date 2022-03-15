@@ -1,6 +1,7 @@
 import { NextPage, InferGetStaticPropsType } from "next";
 import { Box } from "@chakra-ui/react";
 import { getAllPosts } from "../lib/api";
+import BlogCard from "../components/blogCard";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -13,21 +14,11 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage<Props> = ({ allPosts }) => (
-  <ul>
+  <>
     {allPosts?.map((post) => (
-      <Box key={post.slug} mt={10}>
-        <li>
-          <h2>{post.title}</h2>
-          <p>{post.date}</p>
-          <ul>
-            {post.tags?.map((tag) => (
-              <li key={tag}>{tag}</li>
-            ))}
-          </ul>
-        </li>
-      </Box>
+      <BlogCard key={post.slug} title={post.title} publishDate={post.date} tags={post.tags} slug={post.slug} />
     ))}
-  </ul>
+  </>
 );
 
 export default Home;

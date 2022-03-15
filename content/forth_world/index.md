@@ -1,7 +1,7 @@
 ---
-title: "投稿サンプル"
+title: "Hi coraborate"
 date: "20210912"
-tags: ["タグ1", "design", "programming"]
+tags: ["figma"]
 ---
 
 ## Using Prism with Next.js
