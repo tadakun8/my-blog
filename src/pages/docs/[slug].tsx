@@ -1,7 +1,7 @@
 import { NextPage, InferGetStaticPropsType } from "next";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
-import Head from "next/head";
+import "prismjs/themes/prism-okaidia.css";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -36,9 +36,6 @@ export const getStaticProps = async ({ params }: any) => {
 
 const Post: NextPage<Props> = ({ post }) => (
   <>
-    <Head>
-      <link href={`https://unpkg.com/prismjs@0.0.1/themes/prism-okaidia.css`} rel="stylesheet" />
-    </Head>
     <article>
       <h2>{post.title}</h2>
       <p>{post.date}</p>

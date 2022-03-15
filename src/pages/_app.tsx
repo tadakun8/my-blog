@@ -3,9 +3,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    // <ChakraProvider>
-    <Component {...pageProps} />
-    // </ChakraProvider>
+    // Specify resetCSS to false to prevent @tailwindcss/typography css from disappearing
+    <ChakraProvider resetCSS={false}>
+      <Component {...pageProps} />
+    </ChakraProvider>
   );
 }
 
