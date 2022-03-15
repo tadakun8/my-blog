@@ -1,6 +1,5 @@
 import { NextPage, InferGetStaticPropsType } from "next";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
-import "tailwindcss/tailwind.css";
 import markdownToHtml from "../../lib/markdownToHtml";
 import Head from "next/head";
 
@@ -50,10 +49,7 @@ const Post: NextPage<Props> = ({ post }) => (
       </ul>
       <section>
         {/* ここでdangerouslySetInnerHTMLを使ってHTMLタグを出力する */}
-        <article
-          className="prose lg:prose-xl px-8 m-auto my-4 sm:my-16"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
       </section>
     </article>
   </>
