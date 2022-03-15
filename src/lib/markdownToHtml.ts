@@ -1,13 +1,13 @@
 import { remark } from "remark";
 import html from "remark-html";
-/**
- * remarkによるmarkdownの構文変換を行う
- * @param markdown markdown記法で書かれたプレーンテキスト
- * @returns 変換結果をString化したもの
- */
-const markdownToHtml = async (markdown: string) => {
-  const result = await remark().use(html).process(markdown);
-  return result.toString();
-};
+import prism from "remark-prism";
 
-export default markdownToHtml;
+export default async function markdownToHtml(markdown: string) {
+  const result = await remark()
+    // https://github.com/sergioramos/remark-prism/issues/265
+    .use(html, { sanitize: false })
+    // @ts-ignore
+    .use(prism)
+    .process(markdown);
+  return result.toString();
+}

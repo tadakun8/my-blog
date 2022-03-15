@@ -1,8 +1,8 @@
-import Markdown from "markdown-to-jsx";
 import { NextPage, InferGetStaticPropsType } from "next";
-import MarkdownRender from "../../components/markdownRender";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
+import "tailwindcss/tailwind.css";
 import markdownToHtml from "../../lib/markdownToHtml";
+import Head from "next/head";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -24,29 +24,39 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }: any) => {
   const post = getPostBySlug(params.slug, ["slug", "title", "date", "tags", "content"]);
 
-  // const content = await markdownToHtml(post.content);
+  const content = await markdownToHtml(post.content);
   return {
     props: {
-      post,
+      post: {
+        ...post,
+        content,
+      },
     },
   };
 };
 
 const Post: NextPage<Props> = ({ post }) => (
-  <article>
-    <h2>{post.title}</h2>
-    <p>{post.date}</p>
-    <ul>
-      {post.tags?.map((tag) => (
-        <li key={tag}>{tag}</li>
-      ))}
-    </ul>
-    <section>
-      {/* ここでdangerouslySetInnerHTMLを使ってHTMLタグを出力する */}
-      {/* <div dangerouslySetInnerHTML={{ __html: post.content }} /> */}
-      <MarkdownRender content={post.content} />
-    </section>
-  </article>
+  <>
+    <Head>
+      <link href={`https://unpkg.com/prismjs@0.0.1/themes/prism-okaidia.css`} rel="stylesheet" />
+    </Head>
+    <article>
+      <h2>{post.title}</h2>
+      <p>{post.date}</p>
+      <ul>
+        {post.tags?.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+      <section>
+        {/* ここでdangerouslySetInnerHTMLを使ってHTMLタグを出力する */}
+        <article
+          className="prose lg:prose-xl px-8 m-auto my-4 sm:my-16"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </section>
+    </article>
+  </>
 );
 
 export default Post;
