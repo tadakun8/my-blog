@@ -2,6 +2,7 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 import "prismjs/themes/prism-okaidia.css";
+import { Flex, Heading } from "@chakra-ui/react";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -36,8 +37,12 @@ export const getStaticProps = async ({ params }: any) => {
 
 const Post: NextPage<Props> = ({ post }) => (
   <>
+    <Flex h={100} justify="center" align="center">
+      <Heading as="h1" size="1.5xl">
+        {post.title}
+      </Heading>
+    </Flex>
     <article>
-      <h2>{post.title}</h2>
       <p>{post.date}</p>
       <ul>
         {post.tags?.map((tag) => (
