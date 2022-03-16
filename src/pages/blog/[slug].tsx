@@ -2,7 +2,7 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 import "prismjs/themes/prism-okaidia.css";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Box, chakra, Flex, Heading, Link, useColorModeValue } from "@chakra-ui/react";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -42,18 +42,33 @@ const Post: NextPage<Props> = ({ post }) => (
         {post.title}
       </Heading>
     </Flex>
-    <article>
-      <p>{post.date}</p>
-      <ul>
-        {post.tags?.map((tag) => (
-          <li key={tag}>{tag}</li>
+    <Flex justifyContent="space-between" alignItems="center">
+      <chakra.span fontSize="sm" color={useColorModeValue("gray.600", "gray.400")}>
+        {post.date}
+      </chakra.span>
+      <Box>
+        {post.tags.map((tag) => (
+          <Link
+            mx={1}
+            key={tag}
+            px={3}
+            py={1}
+            bg="gray.600"
+            color="gray.100"
+            fontSize="sm"
+            fontWeight="700"
+            rounded="md"
+            _hover={{ bg: "gray.500" }}
+          >
+            {tag}
+          </Link>
         ))}
-      </ul>
-      <section>
-        {/* ここでdangerouslySetInnerHTMLを使ってHTMLタグを出力する */}
-        <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
-      </section>
-    </article>
+      </Box>
+    </Flex>
+    <section>
+      {/* ここでdangerouslySetInnerHTMLを使ってHTMLタグを出力する */}
+      <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
+    </section>
   </>
 );
 

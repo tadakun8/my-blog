@@ -1,6 +1,6 @@
 ---
 title: "Hi coraborate"
-date: "20210912"
+date: "2021-09-12"
 tags: ["figma"]
 ---
 
