@@ -72,13 +72,11 @@ export const getAllPosts = (fields: string[] = []) => {
       const slugA = a.slug.toString().toLowerCase();
       const slugB = b.slug.toString().toLowerCase();
 
-      if (slugA > slugB) {
+      if (slugA < slugB) {
         return 1;
       } else {
-        slugB > slugA;
+        return -1;
       }
-
-      return slugA >= slugB ? 1 : -1;
     });
 
   return posts;
