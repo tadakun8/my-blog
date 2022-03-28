@@ -8,6 +8,7 @@ const Header = () => {
         <Heading>
           <NextLink href={"/"} passHref>
             <Link textDecoration="none" _hover={{ textDecoration: "none" }} _focus={{ outline: "none" }}>
+              {/* &apos; は ' を表す */}
               tadakun8&apos;s blog
             </Link>
           </NextLink>
