@@ -11,7 +11,16 @@ interface blogCardProps {
 const BlogCard = (props: blogCardProps) => {
   return (
     <Flex bg={useColorModeValue("#F9FAFB", "gray.600")} p={2} alignItems="center" justifyContent="center">
-      <Box mx="auto" px={8} py={4} rounded="lg" shadow="lg" bg={useColorModeValue("white", "gray.800")} maxW="2xl">
+      <Box
+        width="80%"
+        mx="auto"
+        px={8}
+        py={4}
+        rounded="lg"
+        shadow="lg"
+        bg={useColorModeValue("white", "gray.800")}
+        maxW="2xl"
+      >
         <Flex justifyContent="space-between" alignItems="center">
           <chakra.span fontSize="sm" color={useColorModeValue("gray.600", "gray.400")}>
             {props.publishDate}
@@ -50,11 +59,6 @@ const BlogCard = (props: blogCardProps) => {
               {props.title}
             </Link>
           </NextLink>
-
-          <chakra.p mt={2} color={useColorModeValue("gray.600", "gray.300")}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam aspernatur
-            doloremque.
-          </chakra.p>
         </Box>
       </Box>
     </Flex>
