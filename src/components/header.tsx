@@ -4,7 +4,7 @@ import NextLink from "next/link";
 const Header = () => {
   return (
     <Box mx={50} my={5}>
-      <HStack>
+      <HStack spacing={10}>
         <Heading>
           <NextLink href={"/"} passHref>
             <Link textDecoration="none" _hover={{ textDecoration: "none" }} _focus={{ outline: "none" }}>
@@ -14,15 +14,10 @@ const Header = () => {
           </NextLink>
         </Heading>
         <Spacer />
-        <HStack>
-          <Box>menu01</Box>
-          <Spacer />
-          <Box>menu02</Box>
-          <Spacer />
-          <Box>menu03</Box>
-          <Spacer />
-          <Box>menu04</Box>
-        </HStack>
+        <Box>menu01</Box>
+        <Box>menu02</Box>
+        <Box>menu03</Box>
+        <Box>menu04</Box>
       </HStack>
     </Box>
   );
