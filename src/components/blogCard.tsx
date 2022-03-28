@@ -53,8 +53,9 @@ const BlogCard = (props: blogCardProps) => {
               fontWeight="700"
               _hover={{
                 color: useColorModeValue("gray.600", "gray.200"),
-                textDecor: "underline",
+                textDecoration: "none",
               }}
+              _focus={{ outline: "none" }}
             >
               {props.title}
             </Link>
