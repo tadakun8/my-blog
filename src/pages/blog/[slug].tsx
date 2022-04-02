@@ -2,7 +2,9 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { getAllPosts, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 import "prismjs/themes/prism-okaidia.css";
-import { Box, chakra, Flex, Heading, HStack, Link, Spacer, useColorModeValue, VStack } from "@chakra-ui/react";
+import { Box, chakra, Heading, HStack, IconButton, Link, Spacer, useColorModeValue, VStack } from "@chakra-ui/react";
+import { Prose } from "@nikolovlazar/chakra-ui-prose";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -37,6 +39,7 @@ export const getStaticProps = async ({ params }: any) => {
 
 const Post: NextPage<Props> = ({ post }) => (
   <>
+    <IconButton aria-label="menu" icon={<HamburgerIcon />} />
     <Box px={[0, 20, 40]}>
       <VStack>
         <Heading as="h1" size="1.5xl">
@@ -69,7 +72,9 @@ const Post: NextPage<Props> = ({ post }) => (
           </HStack>
         </Box>
       </VStack>
-      <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <Prose>
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      </Prose>
     </Box>
   </>
 );
