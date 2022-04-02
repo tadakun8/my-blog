@@ -1,5 +1,5 @@
 ---
-title: "【Chakra UI】extendThemeでタグの入れ子の設定をoverrideする方法"
+title: "【Chakra UI】extendThemeでbaseStyleの指定がCSS記法で書ける"
 date: "2022-04-02"
 tags: ["Nextjs", "Chakra UI"]
 ---
