@@ -13,7 +13,7 @@ const customeTheme = extendTheme(
         padding: "0.2em 0.4em",
         margin: 0,
         backgroundColor: "rgba(175,184,193,0.2)",
-        fontWeight: "normal",
+        fontWeight: "inherit",
         borderRadius: "6px",
         _before: {
           content: '""',
