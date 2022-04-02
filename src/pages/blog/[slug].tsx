@@ -41,10 +41,8 @@ const Post: NextPage<Props> = ({ post }) => (
   <>
     <IconButton aria-label="menu" icon={<HamburgerIcon />} />
     <Box px={[0, 20, 40]}>
-      <VStack>
-        <Heading as="h1" size="1.5xl">
-          {post.title}
-        </Heading>
+      <VStack mb={10}>
+        <Heading as="h1">{post.title}</Heading>
         <Box width="100%">
           <HStack>
             <chakra.span fontSize="sm" color={useColorModeValue("gray.600", "gray.400")}>
