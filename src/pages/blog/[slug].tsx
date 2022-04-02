@@ -39,7 +39,6 @@ export const getStaticProps = async ({ params }: any) => {
 
 const Post: NextPage<Props> = ({ post }) => (
   <>
-    <IconButton aria-label="menu" icon={<HamburgerIcon />} />
     <Box px={[0, 20, 40]}>
       <VStack mb={10}>
         <Heading as="h1">{post.title}</Heading>
