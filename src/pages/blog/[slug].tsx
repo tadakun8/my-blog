@@ -39,7 +39,7 @@ export const getStaticProps = async ({ params }: any) => {
 
 const Post: NextPage<Props> = ({ post }) => (
   <>
-    <Box px={[0, 20, 40]}>
+    <Box p={[10, 30, 50]}>
       <VStack mb={10}>
         <Heading as="h1">{post.title}</Heading>
         <Box width="100%">
