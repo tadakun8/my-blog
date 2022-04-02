@@ -4,7 +4,27 @@ import Header from "../components/header";
 
 import { withProse } from "@nikolovlazar/chakra-ui-prose";
 
-const customeTheme = extendTheme({}, withProse());
+const customeTheme = extendTheme(
+  {},
+  withProse({
+    baseStyle: {
+      // Refer to the <codegit  style in the github readme
+      code: {
+        padding: "0.2em 0.4em",
+        margin: 0,
+        backgroundColor: "rgba(175,184,193,0.2)",
+        fontWeight: "normal",
+        borderRadius: "6px",
+        _before: {
+          content: '""',
+        },
+        _after: {
+          content: '""',
+        },
+      },
+    },
+  })
+);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
