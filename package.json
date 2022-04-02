@@ -15,7 +15,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
-    "@tailwindcss/typography": "^0.5.2",
+    "@nikolovlazar/chakra-ui-prose": "^1.0.7",
     "autoprefixer": "^10.4.2",
     "framer-motion": "^6.2.8",
     "gray-matter": "^4.0.3",
