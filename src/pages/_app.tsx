@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     // Specify resetCSS to false to prevent @tailwindcss/typography css from disappearing
     <ChakraProvider resetCSS={false}>
-      <Header />
+      {/* <Header /> */}
       <Component {...pageProps} />
     </ChakraProvider>
   );
