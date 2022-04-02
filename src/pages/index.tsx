@@ -16,6 +16,7 @@ export const getStaticProps = async () => {
 
 const Home: NextPage<Props> = ({ allPosts }) => (
   <>
+    <Header />
     {allPosts?.map((post) => (
       <BlogCard key={post.slug} title={post.title} publishDate={post.date} tags={post.tags} slug={post.slug} />
     ))}
