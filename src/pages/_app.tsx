@@ -22,6 +22,10 @@ const customeTheme = extendTheme(
           content: '""',
         },
       },
+
+      "pre > code": {
+        backgroundColor: "transparent",
+      },
     },
   })
 );
