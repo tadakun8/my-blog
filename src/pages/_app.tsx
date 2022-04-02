@@ -8,7 +8,7 @@ const customeTheme = extendTheme(
   {},
   withProse({
     baseStyle: {
-      // Refer to the <codegit  style in the github readme
+      // Refer to the <code> of github readme style
       code: {
         padding: "0.2em 0.4em",
         margin: 0,
