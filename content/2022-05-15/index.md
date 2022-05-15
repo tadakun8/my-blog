@@ -1,5 +1,5 @@
 ---
-title: "【Chakra UI】extendThemeでbaseStyleの指定がCSS記法で書ける"
+title: "StorybookでChakraUIコンポーネントの色が反映されない"
 date: "2022-05-15"
 tags: ["React", "Chakra UI", "Storybook"]
 ---
