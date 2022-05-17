@@ -36,8 +36,26 @@ const BlogCard = (props: blogCardProps) => {
               <chakra.span fontSize="sm" color={useColorModeValue("gray.600", "gray.400")}>
                 {props.publishDate}
               </chakra.span>
+              <Box>
+                {props.tags.map((tag, index) => (
+                  <NextLink key={index} href={"/"} passHref>
+                    <Link
+                      mx={1}
+                      px={3}
+                      py={1}
+                      bg="gray.600"
+                      color="gray.100"
+                      fontSize="sm"
+                      fontWeight="700"
+                      rounded="md"
+                      _hover={{ bg: "gray.500" }}
+                    >
+                      {tag}
+                    </Link>
+                  </NextLink>
+                ))}
+              </Box>
             </Flex>
-
             <Box mt={2}>{props.title}</Box>
           </Link>
         </NextLink>
